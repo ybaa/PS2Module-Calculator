@@ -1,0 +1,3 @@
+vhdl work "PS2_RX.vhd"
+vhdl work "Calculator.vhd"
+vhdl work "hardware_test.vhf"

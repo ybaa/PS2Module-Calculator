@@ -1,0 +1,598 @@
+Release 14.7 - xst P.20131013 (nt)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 1.00 secs
+Total CPU time to Xst completion: 0.13 secs
+ 
+--> Reading design: hardware_test.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "hardware_test.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "hardware_test"
+Output Format                      : NGC
+Target Device                      : xc3s500e-5-fg320
+
+---- Source Options
+Top Module Name                    : hardware_test
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "C:/Users/lab/Desktop/klawiaturka/PS2_RX/PS2_RX.vhd" in Library work.
+Architecture behavioral of Entity ps2_rx is up to date.
+Compiling vhdl file "C:/Users/lab/Desktop/klawiaturka/PS2_RX/Calculator.vhd" in Library work.
+Architecture behavioral of Entity calculator is up to date.
+Compiling vhdl file "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" in Library work.
+Entity <hardware_test> compiled.
+Entity <hardware_test> (Architecture <behavioral>) compiled.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <hardware_test> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <PS2_RX> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <Calculator> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <hardware_test> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 97: Unconnected output port 'TxBusy' of component 'RS232'.
+WARNING:Xst:753 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 97: Unconnected output port 'RxRdy' of component 'RS232'.
+WARNING:Xst:753 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 97: Unconnected output port 'RxDO' of component 'RS232'.
+WARNING:Xst:2211 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 97: Instantiating black box module <RS232>.
+WARNING:Xst:753 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 116: Unconnected output port 'DO_Rdy' of component 'Calculator'.
+WARNING:Xst:2211 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf" line 127: Instantiating black box module <LCD1x64>.
+Entity <hardware_test> analyzed. Unit <hardware_test> generated.
+
+Analyzing Entity <PS2_RX> in library <work> (Architecture <behavioral>).
+Entity <PS2_RX> analyzed. Unit <PS2_RX> generated.
+
+Analyzing Entity <Calculator> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/lab/Desktop/klawiaturka/PS2_RX/Calculator.vhd" line 135: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <firstNumber>, <secondNumber>
+Entity <Calculator> analyzed. Unit <Calculator> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <PS2_RX>.
+    Related source file is "C:/Users/lab/Desktop/klawiaturka/PS2_RX/PS2_RX.vhd".
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 3                                              |
+    | Transitions        | 9                                              |
+    | Inputs             | 5                                              |
+    | Outputs            | 1                                              |
+    | Clock              | Clk                       (rising_edge)        |
+    | Power Up State     | idle                                           |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 4-bit up counter for signal <mod11_temp>.
+    Found 1-bit xor8 for signal <parity_check$xor0000> created at line 67.
+    Found 11-bit register for signal <shift_reg_11b>.
+    Found 2-bit register for signal <shift_reg_2b>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Counter(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   1 Xor(s).
+Unit <PS2_RX> synthesized.
+
+
+Synthesizing Unit <Calculator>.
+    Related source file is "C:/Users/lab/Desktop/klawiaturka/PS2_RX/Calculator.vhd".
+WARNING:Xst:1305 - Output <DO_Rdy> is never assigned. Tied to value 0.
+    Found finite state machine <FSM_1> for signal <current_s>.
+    -----------------------------------------------------------------------
+    | States             | 7                                              |
+    | Transitions        | 42                                             |
+    | Inputs             | 14                                             |
+    | Outputs            | 6                                              |
+    | Clock              | Clk                       (rising_edge)        |
+    | Clock enable       | DI_Rdy                    (positive)           |
+    | Reset              | RST                       (positive)           |
+    | Reset type         | asynchronous                                   |
+    | Reset State        | s0                                             |
+    | Power Up State     | s0                                             |
+    | Encoding           | automatic                                      |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+WARNING:Xst:737 - Found 5-bit latch for signal <firstNumber>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 5-bit latch for signal <secondNumber>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+WARNING:Xst:737 - Found 5-bit latch for signal <result>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+    Found 5-bit addsub for signal <result$mux0001>.
+    Summary:
+	inferred   1 Finite State Machine(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <Calculator> synthesized.
+
+
+Synthesizing Unit <hardware_test>.
+    Related source file is "C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf".
+WARNING:Xst:653 - Signal <aaa<55:52>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+WARNING:Xst:653 - Signal <aaa<43:40>> is used but never assigned. This sourceless signal will be automatically connected to value 0000.
+WARNING:Xst:1780 - Signal <XLXN_17> is never used or assigned. This unconnected signal will be trimmed during the optimization process.
+Unit <hardware_test> synthesized.
+
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Adders/Subtractors                                   : 1
+ 5-bit addsub                                          : 1
+# Counters                                             : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 13
+ 1-bit register                                        : 13
+# Latches                                              : 3
+ 5-bit latch                                           : 3
+# Xors                                                 : 1
+ 1-bit xor8                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+Analyzing FSM <FSM_1> for best encoding.
+Optimizing FSM <XLXI_3/current_s/FSM> on signal <current_s[1:3]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ s0    | 000
+ s1    | 001
+ s2    | 010
+ s3    | 011
+ s4    | 100
+ s5    | 101
+ s6    | 110
+-------------------
+Analyzing FSM <FSM_0> for best encoding.
+Optimizing FSM <XLXI_2/state/FSM> on signal <state[1:2]> with user encoding.
+-------------------
+ State | Encoding
+-------------------
+ idle  | 00
+ test  | 01
+ rx_ok | 10
+-------------------
+Reading core <RS232.ngc>.
+Reading core <LCD1x64.ngc>.
+Loading core <RS232> for timing and area information for instance <XLXI_1>.
+Loading core <LCD1x64> for timing and area information for instance <XLXI_4>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# FSMs                                                 : 2
+# Adders/Subtractors                                   : 1
+ 5-bit addsub                                          : 1
+# Counters                                             : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 13
+ Flip-Flops                                            : 13
+# Latches                                              : 3
+ 5-bit latch                                           : 3
+# Xors                                                 : 1
+ 1-bit xor8                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <secondNumber_4> has a constant value of 0 in block <Calculator>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1293 - FF/Latch <firstNumber_4> has a constant value of 0 in block <Calculator>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <hardware_test> ...
+
+Optimizing unit <PS2_RX> ...
+
+Optimizing unit <Calculator> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block hardware_test, actual ratio is 4.
+INFO:Xst:2260 - The FF/Latch <cntDigit_0> in Unit <XLXI_4> is equivalent to the following 4 FFs/Latches : <cntDigit_0_1> <cntDigit_0_2> <cntDigit_0_3> <cntDigit_0_4> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_1> in Unit <XLXI_4> is equivalent to the following 2 FFs/Latches : <cntDigit_1_1> <cntDigit_1_2> 
+INFO:Xst:2260 - The FF/Latch <State_16> in Unit <XLXI_4> is equivalent to the following FF/Latch : <State_16_1> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_0> in Unit <XLXI_4> is equivalent to the following 4 FFs/Latches : <cntDigit_0_1> <cntDigit_0_2> <cntDigit_0_3> <cntDigit_0_4> 
+INFO:Xst:2260 - The FF/Latch <cntDigit_1> in Unit <XLXI_4> is equivalent to the following 2 FFs/Latches : <cntDigit_1_1> <cntDigit_1_2> 
+INFO:Xst:2260 - The FF/Latch <State_16> in Unit <XLXI_4> is equivalent to the following FF/Latch : <State_16_1> 
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 22
+ Flip-Flops                                            : 22
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : hardware_test.ngr
+Top Level Output File Name         : hardware_test
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 15
+
+Cell Usage :
+# BELS                             : 467
+#      GND                         : 3
+#      INV                         : 12
+#      LUT1                        : 42
+#      LUT2                        : 47
+#      LUT2_L                      : 5
+#      LUT3                        : 93
+#      LUT3_D                      : 3
+#      LUT3_L                      : 6
+#      LUT4                        : 99
+#      LUT4_D                      : 6
+#      LUT4_L                      : 18
+#      MUXCY                       : 42
+#      MUXF5                       : 28
+#      MUXF6                       : 10
+#      MUXF7                       : 5
+#      VCC                         : 3
+#      XORCY                       : 45
+# FlipFlops/Latches                : 197
+#      FD                          : 9
+#      FDCE                        : 3
+#      FDE                         : 57
+#      FDR                         : 71
+#      FDRE                        : 18
+#      FDRS                        : 11
+#      FDRSE                       : 4
+#      FDS                         : 11
+#      LDCP                        : 5
+#      LDE                         : 8
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 14
+#      IBUF                        : 4
+#      IOBUF                       : 4
+#      OBUF                        : 6
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-5 
+
+ Number of Slices:                      190  out of   4656     4%  
+ Number of Slice Flip Flops:            197  out of   9312     2%  
+ Number of 4 input LUTs:                331  out of   9312     3%  
+ Number of IOs:                          15
+ Number of bonded IOBs:                  15  out of    232     6%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+---------------------------------------------------------+-------------------------------+-------+
+Clock Signal                                             | Clock buffer(FF name)         | Load  |
+---------------------------------------------------------+-------------------------------+-------+
+Clk_50MHz                                                | BUFGP                         | 184   |
+XLXI_3/current_s_cmp_eq0014(XLXI_3/current_s_FSM_Out01:O)| NONE(*)(XLXI_3/firstNumber_3) | 4     |
+XLXI_3/secondNumber_or0000(XLXI_3/secondNumber_or00001:O)| NONE(*)(XLXI_3/secondNumber_3)| 4     |
+XLXI_3/current_s_cmp_eq0017(XLXI_3/current_s_FSM_Out31:O)| NONE(*)(XLXI_3/result_4)      | 5     |
+---------------------------------------------------------+-------------------------------+-------+
+(*) These 3 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+-----------------------------------------------------+------------------------+-------+
+Control Signal                                       | Buffer(FF name)        | Load  |
+-----------------------------------------------------+------------------------+-------+
+BTN_SOUTH                                            | IBUF                   | 3     |
+XLXI_3/result_0__and0000(XLXI_3/result_0__and00001:O)| NONE(XLXI_3/result_0)  | 1     |
+XLXI_3/result_0__and0001(XLXI_3/result_0__and00011:O)| NONE(XLXI_3/result_0)  | 1     |
+XLXI_3/result_1__and0000(XLXI_3/result_1__and00001:O)| NONE(XLXI_3/result_1)  | 1     |
+XLXI_3/result_1__and0001(XLXI_3/result_1__and00011:O)| NONE(XLXI_3/result_1)  | 1     |
+XLXI_3/result_2__and0000(XLXI_3/result_2__and00001:O)| NONE(XLXI_3/result_2)  | 1     |
+XLXI_3/result_2__and0001(XLXI_3/result_2__and00011:O)| NONE(XLXI_3/result_2)  | 1     |
+XLXI_3/result_3__and0000(XLXI_3/result_3__and00001:O)| NONE(XLXI_3/result_3)  | 1     |
+XLXI_3/result_3__and0001(XLXI_3/result_3__and00011:O)| NONE(XLXI_3/result_3)  | 1     |
+XLXI_3/result_4__and0000(XLXI_3/result_4__and00001:O)| NONE(XLXI_3/result_4)  | 1     |
+XLXI_3/result_4__and0001(XLXI_3/result_4__and00011:O)| NONE(XLXI_3/result_4)  | 1     |
+-----------------------------------------------------+------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -5
+
+   Minimum period: 7.019ns (Maximum Frequency: 142.476MHz)
+   Minimum input arrival time before clock: 4.098ns
+   Maximum output required time after clock: 6.775ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'Clk_50MHz'
+  Clock period: 7.019ns (frequency: 142.476MHz)
+  Total number of paths / destination ports: 2724 / 346
+-------------------------------------------------------------------------
+Delay:               7.019ns (Levels of Logic = 8)
+  Source:            XLXI_3/current_s_FSM_FFd2 (FF)
+  Destination:       XLXI_4/regDI_0 (FF)
+  Source Clock:      Clk_50MHz rising
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: XLXI_3/current_s_FSM_FFd2 to XLXI_4/regDI_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            29   0.514   1.102  XLXI_3/current_s_FSM_FFd2 (XLXI_3/current_s_FSM_FFd2)
+     LUT4:I2->O            1   0.612   0.426  XLXI_3/DO<3>1 (aaa<35>)
+     begin scope: 'XLXI_4'
+     LUT3:I1->O            1   0.612   0.000  Mmux_Digit_79 (Mmux_Digit_79)
+     MUXF5:I0->O           1   0.278   0.000  Mmux_Digit_5_f5_5 (Mmux_Digit_5_f56)
+     MUXF6:I0->O           1   0.451   0.000  Mmux_Digit_3_f6_2 (Mmux_Digit_3_f63)
+     MUXF7:I1->O           6   0.451   0.721  Mmux_Digit_2_f7_2 (Digit<3>)
+     LUT3_D:I0->O          1   0.612   0.360  Hex2ASCII<4>1 (Hex2ASCII<4>)
+     LUT4:I3->O            1   0.612   0.000  regDI_mux0001<7>1111 (regDI_mux0001<7>111)
+     FDS:D                     0.268          regDI_0
+    ----------------------------------------
+    Total                      7.019ns (4.410ns logic, 2.609ns route)
+                                       (62.8% logic, 37.2% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_3/current_s_cmp_eq0014'
+  Clock period: 2.100ns (frequency: 476.236MHz)
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               2.100ns (Levels of Logic = 1)
+  Source:            XLXI_3/firstNumber_0 (LATCH)
+  Destination:       XLXI_3/firstNumber_0 (LATCH)
+  Source Clock:      XLXI_3/current_s_cmp_eq0014 falling
+  Destination Clock: XLXI_3/current_s_cmp_eq0014 falling
+
+  Data Path: XLXI_3/firstNumber_0 to XLXI_3/firstNumber_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              7   0.588   0.632  XLXI_3/firstNumber_0 (XLXI_3/firstNumber_0)
+     LUT4:I2->O            1   0.612   0.000  XLXI_3/firstNumber_mux0011<4>2 (XLXI_3/firstNumber_mux0011<4>)
+     LDE:D                     0.268          XLXI_3/firstNumber_0
+    ----------------------------------------
+    Total                      2.100ns (1.468ns logic, 0.632ns route)
+                                       (69.9% logic, 30.1% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'XLXI_3/secondNumber_or0000'
+  Clock period: 2.100ns (frequency: 476.236MHz)
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Delay:               2.100ns (Levels of Logic = 1)
+  Source:            XLXI_3/secondNumber_0 (LATCH)
+  Destination:       XLXI_3/secondNumber_0 (LATCH)
+  Source Clock:      XLXI_3/secondNumber_or0000 falling
+  Destination Clock: XLXI_3/secondNumber_or0000 falling
+
+  Data Path: XLXI_3/secondNumber_0 to XLXI_3/secondNumber_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDE:G->Q              7   0.588   0.632  XLXI_3/secondNumber_0 (XLXI_3/secondNumber_0)
+     LUT4:I2->O            1   0.612   0.000  XLXI_3/secondNumber_mux0011<4>1 (XLXI_3/secondNumber_mux0011<4>)
+     LDE:D                     0.268          XLXI_3/secondNumber_0
+    ----------------------------------------
+    Total                      2.100ns (1.468ns logic, 0.632ns route)
+                                       (69.9% logic, 30.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'Clk_50MHz'
+  Total number of paths / destination ports: 47 / 46
+-------------------------------------------------------------------------
+Offset:              4.098ns (Levels of Logic = 3)
+  Source:            BTN_SOUTH (PAD)
+  Destination:       XLXI_1/iRxBusy (FF)
+  Destination Clock: Clk_50MHz rising
+
+  Data Path: BTN_SOUTH to XLXI_1/iRxBusy
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            45   1.106   1.228  BTN_SOUTH_IBUF (BTN_SOUTH_IBUF)
+     begin scope: 'XLXI_1'
+     LUT4:I0->O            1   0.612   0.357  iRxBusy_or0000 (iRxBusy_or0000)
+     FDRE:R                    0.795          iRxBusy
+    ----------------------------------------
+    Total                      4.098ns (2.513ns logic, 1.585ns route)
+                                       (61.3% logic, 38.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'Clk_50MHz'
+  Total number of paths / destination ports: 30 / 9
+-------------------------------------------------------------------------
+Offset:              6.775ns (Levels of Logic = 3)
+  Source:            XLXI_3/current_s_FSM_FFd2 (FF)
+  Destination:       XLXN_15 (PAD)
+  Source Clock:      Clk_50MHz rising
+
+  Data Path: XLXI_3/current_s_FSM_FFd2 to XLXN_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            29   0.514   1.102  XLXI_3/current_s_FSM_FFd2 (XLXI_3/current_s_FSM_FFd2)
+     LUT4:I2->O            2   0.612   0.380  XLXI_3/y_and000010 (XLXI_3/y_and000010)
+     MUXF5:S->O            1   0.641   0.357  XLXI_3/y_and000023_f5 (XLXN_15_OBUF)
+     OBUF:I->O                 3.169          XLXN_15_OBUF (XLXN_15)
+    ----------------------------------------
+    Total                      6.775ns (4.936ns logic, 1.839ns route)
+                                       (72.9% logic, 27.1% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'XLXI_3/current_s_cmp_eq0017'
+  Total number of paths / destination ports: 5 / 1
+-------------------------------------------------------------------------
+Offset:              6.256ns (Levels of Logic = 3)
+  Source:            XLXI_3/result_0 (LATCH)
+  Destination:       XLXN_15 (PAD)
+  Source Clock:      XLXI_3/current_s_cmp_eq0017 falling
+
+  Data Path: XLXI_3/result_0 to XLXN_15
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LDCP:G->Q             1   0.588   0.509  XLXI_3/result_0 (XLXI_3/result_0)
+     LUT4:I0->O            2   0.612   0.380  XLXI_3/y_and000010 (XLXI_3/y_and000010)
+     MUXF5:S->O            1   0.641   0.357  XLXI_3/y_and000023_f5 (XLXN_15_OBUF)
+     OBUF:I->O                 3.169          XLXN_15_OBUF (XLXN_15)
+    ----------------------------------------
+    Total                      6.256ns (5.010ns logic, 1.246ns route)
+                                       (80.1% logic, 19.9% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 8.00 secs
+Total CPU time to Xst completion: 7.17 secs
+ 
+--> 
+
+Total memory usage is 220204 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   16 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
+

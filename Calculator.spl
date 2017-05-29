@@ -1,0 +1,12 @@
+[Inputs]
+DI_Rdy
+RST
+Clk
+=DI[7:0]=
+[Outputs]
+y
+DO_Rdy
+=ARG1[7:0]=
+=ARG2[7:0]=
+=DO[7:0]=
+[BiDir]

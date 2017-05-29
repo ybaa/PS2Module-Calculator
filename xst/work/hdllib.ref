@@ -1,0 +1,6 @@
+EN ps2_rx NULL C:/Users/lab/Desktop/klawiaturka/PS2_RX/PS2_RX.vhd sub00/vhpl00 1495625261
+AR hardware_test behavioral C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf sub00/vhpl03 1495625266
+EN calculator NULL C:/Users/lab/Desktop/klawiaturka/PS2_RX/Calculator.vhd sub00/vhpl04 1495625263
+AR ps2_rx behavioral C:/Users/lab/Desktop/klawiaturka/PS2_RX/PS2_RX.vhd sub00/vhpl01 1495625262
+AR calculator behavioral C:/Users/lab/Desktop/klawiaturka/PS2_RX/Calculator.vhd sub00/vhpl05 1495625264
+EN hardware_test NULL C:/Users/lab/Desktop/klawiaturka/PS2_RX/hardware_test.vhf sub00/vhpl02 1495625265
